@@ -1,0 +1,78 @@
+{
+  "entities": {
+    "Category": {
+      "title": "MenuItem Category",
+      "description": "Category for menu items (e.g., Entrées, Plats, Desserts)",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Display name of the category" },
+        "order": { "type": "number", "description": "Display order" }
+      },
+      "required": ["name", "order"]
+    },
+    "MenuItem": {
+      "title": "Menu Item",
+      "description": "A specific dish on the menu",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Name of the dish" },
+        "description": { "type": "string", "description": "Detailed description" },
+        "price": { "type": "number", "description": "Price in MAD" },
+        "category": { "type": "string", "description": "Category ID" },
+        "image": { "type": "string", "format": "uri", "description": "Photo URL" },
+        "ingredients": { "type": "array", "items": { "type": "string" }, "description": "List of key ingredients" },
+        "winePairing": { "type": "string", "description": "Recommended wine" },
+        "isSeasonal": { "type": "boolean", "description": "Is this a seasonal dish" }
+      },
+      "required": ["name", "price", "category"]
+    },
+    "Reservation": {
+      "title": "Reservation",
+      "description": "A table booking request",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "guests": { "type": "number" },
+        "specialRequests": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "cancelled"] },
+        "userId": { "type": "string", "description": "Auth UID if registered" }
+      },
+      "required": ["customerName", "email", "date", "guests"]
+    },
+    "EventInquiry": {
+      "title": "Event Inquiry",
+      "description": "Private event inquiry form",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "company": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "date": { "type": "string" },
+        "guests": { "type": "number" },
+        "description": { "type": "string" }
+      },
+      "required": ["name", "email", "date"]
+    }
+  },
+  "firestore": {
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Categories for the menu"
+    },
+    "/menuItems/{itemId}": {
+      "schema": "MenuItem",
+      "description": "All dishes available"
+    },
+    "/reservations/{reservationId}": {
+      "schema": "Reservation",
+      "description": "Table bookings"
+    },
+    "/eventInquiries/{inquiryId}": {
+      "schema": "EventInquiry",
+      "description": "Requests for private events"
+    }
+  }
+}
