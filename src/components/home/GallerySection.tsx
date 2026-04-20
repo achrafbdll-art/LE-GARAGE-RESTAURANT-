@@ -4,21 +4,20 @@ import { motion, AnimatePresence } from 'motion/react';
 const CATEGORIES = ['Tous', 'Lieu', 'Musée', 'Voitures', 'Cuisine'];
 
 const IMAGES = [
-  { url: 'https://picsum.photos/seed/restaurant-interior/800/600', title: 'L\'Atmosphère', category: 'Lieu' },
-  { url: 'https://picsum.photos/seed/classic-car-red/800/600', title: 'Ferrari 250 GTO', category: 'Voitures' },
-  { url: 'https://picsum.photos/seed/vintage-car-1/800/600', title: 'Collection Classique', category: 'Musée' },
-  { url: 'https://picsum.photos/seed/gastronomy-plate/800/600', title: 'Art Culinaire', category: 'Cuisine' },
-  { url: 'https://picsum.photos/seed/luxury-table/800/600', title: 'Exclusivité', category: 'Lieu' },
-  { url: 'https://picsum.photos/seed/porsche-911/800/600', title: 'Porsche 911 Carrera', category: 'Voitures' },
-  { url: 'https://picsum.photos/seed/classic-dashboard/800/600', title: 'Détails Historiques', category: 'Musée' },
-  { url: 'https://picsum.photos/seed/chef-work/800/600', title: 'Savoir-Faire', category: 'Cuisine' },
-  { url: 'https://picsum.photos/seed/mustang-vintage/800/600', title: 'Mustang Shelby GT500', category: 'Voitures' },
-  { url: 'https://picsum.photos/seed/museum-hall/800/600', title: 'Hall des Légendes', category: 'Musée' },
-  { url: 'https://picsum.photos/seed/jaguar-e-type/800/600', title: 'Jaguar E-Type', category: 'Voitures' },
-  { url: 'https://picsum.photos/seed/private-lounge/800/600', title: 'Salon Privé', category: 'Lieu' },
-  { url: 'https://picsum.photos/seed/dessert-art/800/600', title: 'Douceur Vive', category: 'Cuisine' },
+  { url: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800', title: 'L\'Atmosphère', category: 'Lieu' },
+  { url: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800', title: 'Ferrari 250 GTO', category: 'Voitures' },
+  { url: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800', title: 'Collection Classique', category: 'Musée' },
+  { url: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800', title: 'Art Culinaire', category: 'Cuisine' },
+  { url: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800', title: 'Exclusivité', category: 'Lieu' },
+  { url: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800', title: 'Porsche 911 Carrera', category: 'Voitures' },
+  { url: 'https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&q=80&w=800', title: 'Détails Historiques', category: 'Musée' },
+  { url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800', title: 'Savoir-Faire', category: 'Cuisine' },
+  { url: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800', title: 'Mustang Shelby GT500', category: 'Voitures' },
+  { url: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800', title: 'Hall des Légendes', category: 'Musée' },
+  { url: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800', title: 'Jaguar E-Type', category: 'Voitures' },
+  { url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800', title: 'Salon Privé', category: 'Lieu' },
+  { url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800', title: 'Douceur Vive', category: 'Cuisine' },
 ];
-
 export default function GallerySection() {
   const [activeFilter, setActiveFilter] = useState('Tous');
 
