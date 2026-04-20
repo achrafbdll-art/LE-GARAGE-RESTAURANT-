@@ -6,7 +6,7 @@ export default function ExperienceSection() {
       title: "L'Ambiance Maillot",
       subtitle: "Brasserie Prestige",
       description: "Une atmosphère vibrante où l'élégance de l'Automobile Club rencontre le dynamisme des grandes brasseries. Un décor chargé d'histoire pour un moment hors du temps.",
-      image: "https://picsum.photos/seed/ambiance-brasserie/800/1000",
+      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800', title: 'L\'Atmosphère', category: 'Lieu'",
       accent: "bg-brasserie-red"
     },
     {
