@@ -17,7 +17,7 @@ const SAMPLE_MENU = [
     description: 'Filet de bœuf de l\'Atlas, foie gras poêlé, sauce Madère et écrasé de pommes de terre à la truffe.',
     price: 450,
     category: 'Plats',
-    image: 'https://picsum.photos/seed/beef/400/500',
+    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800', title: 'L\'Atmosphère', category: 'Lieu' 
   },
   {
     id: '3',
