@@ -2,22 +2,23 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+
 const HERO_IMAGES = [
   {
     url: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1920",
-    alt: "Ambiance du restaurant"
+    alt: "Ambiance élégante du restaurant Le Garage"
   },
   {
-    url: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1920",
-    alt: "Détail de voiture de collection"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=1920",
-    alt: "Exposition du Musée de l'Automobile"
+    url: "https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&q=80&w=1920",
+    alt: "Table de brasserie gastronomique"
   },
   {
     url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1920",
-    alt: "Design intérieur luxe"
+    alt: "Détail d'une voiture de collection mythique"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1920",
+    alt: "L'élégance du Musée Automobile"
   }
 ];
 
