@@ -9,7 +9,7 @@ const SAMPLE_MENU = [
     description: 'Fines tranches de noix de Saint-Jacques, citron vert, huile de truffe blanche et perles de caviar.',
     price: 240,
     category: 'Entrées',
-    image: 'https://picsum.photos/seed/scallops/400/500',
+    image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800', title: 'Ferrari 250 GTO', category: 'Voitures'
   },
   {
     id: '2',
