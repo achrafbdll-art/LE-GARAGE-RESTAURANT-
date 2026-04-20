@@ -20,7 +20,6 @@ const HERO_IMAGES = [
     alt: "L'élégance du Musée Automobile"
   }
 ];
-
 interface HeroProps {
   onOpenReservation?: () => void;
 }
