@@ -14,7 +14,7 @@ const IMAGES = [
  
    { url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800' },
   { url: 'https://picsum.photos/seed/gastronomy-plate/800/600', title: 'Art Culinaire', category: 'Cuisine' },
-  { url: 'https://picsum.photos/seed/luxury-table/800/600', title: 'Exclusivité', category: 'Lieu' },
+  { url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800' },
   { url: 'https://picsum.photos/seed/porsche-911/800/600', title: 'Porsche 911 Carrera', category: 'Voitures' },
   { url: 'https://picsum.photos/seed/classic-dashboard/800/600', title: 'Détails Historiques', category: 'Musée' },
   { url: 'https://picsum.photos/seed/chef-work/800/600', title: 'Savoir-Faire', category: 'Cuisine' },
