@@ -5,7 +5,7 @@ const CATEGORIES = ['Tous', 'Lieu', 'Musée', 'Voitures', 'Cuisine'];
 
 const IMAGES = [
   { 
-    url: 'https://cdn.pixabay.com/video/2018/11/04/19227-300431057_tiny.mp4', 
+    url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800'
     title: 'L\'Atmosphère', 
     category: 'Lieu',
     type: 'video'
