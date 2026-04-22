@@ -21,7 +21,7 @@ const IMAGES = [
   { url: 'https://picsum.photos/seed/mustang-vintage/800/600', title: 'Mustang Shelby GT500', category: 'Voitures' },
   { url: 'https://picsum.photos/seed/museum-hall/800/600', title: 'Hall des Légendes', category: 'Musée' },
   { url: 'https://picsum.photos/seed/jaguar-e-type/800/600', title: 'Jaguar E-Type', category: 'Voitures' },
-  { url: 'https://picsum.photos/seed/private-lounge/800/600', title: 'Salon Privé', category: 'Lieu' },
+
   { url: 'https://picsum.photos/seed/dessert-art/800/600', title: 'Douceur Vive', category: 'Cuisine' },
 ];
 
