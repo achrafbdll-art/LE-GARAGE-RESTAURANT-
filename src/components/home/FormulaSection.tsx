@@ -72,8 +72,7 @@ export default function FormulaSection({ onOpenReservation }: FormulaSectionProp
           >
             <div className="absolute inset-0 border-[20px] border-black/20 z-10 pointer-events-none" />
             <img 
-              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800" 
-              alt="La Formule Signature"
+              src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
