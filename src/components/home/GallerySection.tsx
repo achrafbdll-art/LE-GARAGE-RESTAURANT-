@@ -4,12 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 const CATEGORIES = ['Tous', 'Lieu', 'Musée', 'Voitures', 'Cuisine'];
 
 const IMAGES = [
-  { 
-    url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800'
-    title: 'L\'Atmosphère', 
-    category: 'Lieu',
-    type: 'video'
-  },
+
   { url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800' },
  
    { url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800' },
