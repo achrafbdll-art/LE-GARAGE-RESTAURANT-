@@ -12,7 +12,7 @@ const HERO_IMAGES = [
     alt: "Le geste du Chef"
   },
   {
-    url: "https://images.unsplash.com/photo-1550966841-391ad5968ff3?auto=format&fit=crop&q=80&w=1920",
+    url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800",
     alt: "Table de prestige"
   },
   {
