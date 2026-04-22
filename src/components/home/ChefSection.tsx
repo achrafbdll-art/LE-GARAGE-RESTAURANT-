@@ -32,7 +32,7 @@ export default function ChefSection({ onOpenReservation }: ChefSectionProps) {
                 <div className="relative aspect-[3/4] overflow-hidden border border-gold/20 p-4 bg-black">
                    <div className="absolute inset-0 bg-gold/5 -z-10 translate-x-4 translate-y-4 border border-gold/10" />
                    <img 
-                     src="https://www.istockphoto.com/fr/photos/portrait-chef-cuisine" 
+                     src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800" 
                      alt="Chef Yassine Belkhayat"
                      className="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition-all duration-1000"
                      referrerPolicy="no-referrer"
