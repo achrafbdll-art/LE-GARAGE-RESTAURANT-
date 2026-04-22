@@ -55,6 +55,23 @@
         "description": { "type": "string" }
       },
       "required": ["name", "email", "date"]
+    },
+    "Restoration": {
+      "title": "Restoration Project",
+      "description": "A vehicle restoration project tracked by the garage",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Car make and model name" },
+        "model": { "type": "string", "description": "Specific variant" },
+        "year": { "type": "number", "description": "Year of production" },
+        "status": { "type": "string", "enum": ["Waiting", "In Progress", "Finished"], "description": "Current status" },
+        "progress": { "type": "number", "description": "Percentage completion (0-100)" },
+        "image": { "type": "string", "format": "uri", "description": "Photo of the car" },
+        "tasks": { "type": "array", "description": "List of restoration tasks" },
+        "ownerId": { "type": "string", "description": "Auth UID of the owner" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp" }
+      },
+      "required": ["name", "model", "year", "status", "progress"]
     }
   },
   "firestore": {
@@ -73,6 +90,10 @@
     "/eventInquiries/{inquiryId}": {
       "schema": "EventInquiry",
       "description": "Requests for private events"
+    },
+    "/restorations/{restorationId}": {
+      "schema": "Restoration",
+      "description": "Vehicle restoration projects"
     }
   }
 }

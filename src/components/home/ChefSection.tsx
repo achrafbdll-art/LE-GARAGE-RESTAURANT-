@@ -1,7 +1,11 @@
 import { motion } from 'motion/react';
 import { Award, Quote, Utensils } from 'lucide-react';
 
-export default function ChefSection() {
+interface ChefSectionProps {
+  onOpenReservation?: () => void;
+}
+
+export default function ChefSection({ onOpenReservation }: ChefSectionProps) {
   const distinctions = [
     { title: "Bib Gourmand", year: "2023", organization: "Guide Michelin" },
     { title: "Prix de l'Excellence", year: "2024", organization: "Maroc Gastronomie" },
@@ -30,7 +34,7 @@ export default function ChefSection() {
                    <img 
                      src="https://picsum.photos/seed/chef-portrait/800/1000" 
                      alt="Chef Yassine Belkhayat"
-                     className="w-full h-full object-cover grayscale brightness-90 group-hover:brightness-100 transition-all duration-1000"
+                     className="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition-all duration-1000"
                      referrerPolicy="no-referrer"
                    />
                    <div className="absolute bottom-10 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
@@ -62,7 +66,7 @@ export default function ChefSection() {
                    <div className="relative pl-12">
                       <Quote className="absolute left-0 top-0 text-gold/30" size={32} />
                       <p className="text-silver/70 text-xl font-light leading-relaxed italic">
-                        "La gastronomie est une mécanique de précision. Chaque ingrédient est une pièce maîtresse d'un moteur complexe qui, une fois assemblé, doit délivrer une émotion pure, instantanée."
+                        "La gastronomie est une mécanique de precision. Chaque ingrédient est une pièce maîtresse d'un moteur complexe qui, une fois assemblé, doit délivrer une émotion pure, instantanée."
                       </p>
                    </div>
 
@@ -87,14 +91,21 @@ export default function ChefSection() {
                    </div>
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-4 flex items-center gap-8">
                    <motion.button 
                      whileHover={{ x: 10 }}
                      className="group flex items-center space-x-6 text-gold"
                    >
-                     <span className="text-[11px] font-bold uppercase tracking-[0.4em]">Découvrir son parcours</span>
-                     <div className="h-[2px] w-12 bg-gold group-hover:w-20 transition-all duration-300" />
+                     <span className="text-[11px] font-bold uppercase tracking-[0.4em]">Son parcours</span>
+                     <div className="h-[2px] w-8 bg-gold group-hover:w-12 transition-all duration-300" />
                    </motion.button>
+
+                   <button 
+                     onClick={onOpenReservation}
+                     className="px-6 py-3 border border-white/10 text-white font-bold uppercase tracking-[2px] text-[10px] hover:border-gold hover:text-gold transition-all"
+                   >
+                      Réserver sa table
+                   </button>
                 </div>
              </motion.div>
 

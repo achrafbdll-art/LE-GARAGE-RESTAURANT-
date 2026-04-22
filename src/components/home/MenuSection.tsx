@@ -1,6 +1,9 @@
-import { motion } from 'motion/react';
-import { UtensilsCrossed } from 'lucide-react';
-import { formatPrice } from '../../lib/utils';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { UtensilsCrossed, Filter } from 'lucide-react';
+import { formatPrice, cn } from '../../lib/utils';
+
+const CATEGORIES = ['Tous', 'Entrées', 'Plats', 'Desserts'];
 
 const SAMPLE_MENU = [
   {
@@ -9,7 +12,7 @@ const SAMPLE_MENU = [
     description: 'Fines tranches de noix de Saint-Jacques, citron vert, huile de truffe blanche et perles de caviar.',
     price: 240,
     category: 'Entrées',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800', title: 'Collection Classique', category: 'Musée'
+    image: 'https://picsum.photos/seed/scallops/400/500',
   },
   {
     id: '2',
@@ -17,7 +20,7 @@ const SAMPLE_MENU = [
     description: 'Filet de bœuf de l\'Atlas, foie gras poêlé, sauce Madère et écrasé de pommes de terre à la truffe.',
     price: 450,
     category: 'Plats',
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800', title: 'L\'Atmosphère', category: 'Lieu' 
+    image: 'https://picsum.photos/seed/beef/400/500',
   },
   {
     id: '3',
@@ -34,26 +37,39 @@ const SAMPLE_MENU = [
     price: 160,
     category: 'Desserts',
     image: 'https://picsum.photos/seed/dessert/400/500',
+  },
+  {
+    id: '5',
+    name: 'Risotto aux Asperges Sauvages',
+    description: 'Riz Carnaroli, asperges vertes croquantes, tuile de parmesan 24 mois.',
+    price: 210,
+    category: 'Entrées',
+    image: 'https://picsum.photos/seed/risotto/400/500',
+  },
+  {
+    id: '6',
+    name: 'Tarte Tatine Revisitée',
+    description: 'Pommes caramélisées, pâte feuilletée inversée, crème fraîche d\'Isigny.',
+    price: 130,
+    category: 'Desserts',
+    image: 'https://picsum.photos/seed/tatine/400/500',
   }
 ];
 
 export default function MenuSection() {
+  const [activeCategory, setActiveCategory] = useState('Tous');
+
+  const filteredMenu = activeCategory === 'Tous' 
+    ? SAMPLE_MENU 
+    : SAMPLE_MENU.filter(item => item.category === activeCategory);
+
   return (
     <section id="menu" className="py-24 bg-charcoal relative overflow-hidden">
-      {/* Enhanced Zellij Motif Background */}
+      {/* ... existing ornaments ... */}
       <div className="absolute inset-0 z-0 opacity-[0.12] pointer-events-none transition-opacity duration-1000" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 15-15 15-15-15L30 0zm0 60l15-15-15-15-15 15 15 15zM0 30l15 15 15-15-15-15L0 30zm60 0l-15 15-15-15 15-15 15 15z' fill='%23C5A059' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
         backgroundSize: '100px 100px'
       }} />
-
-      {/* Zellij side borders */}
-      <div className="absolute top-0 right-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent z-10 hidden lg:block" />
-      <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent z-10 hidden lg:block" />
-
-      {/* Decorative text */}
-      <div className="absolute top-20 -left-10 text-[10rem] font-serif font-black text-white/[0.04] select-none pointer-events-none uppercase">
-        Gastronomy
-      </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20 relative">
@@ -65,67 +81,68 @@ export default function MenuSection() {
           >
             <div className="p-4 rounded-full border border-gold/30 bg-black/40 backdrop-blur-sm relative">
               <UtensilsCrossed className="text-gold" size={32} />
-              {/* Small Zellij corner accents */}
               <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-gold/50" />
               <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-gold/50" />
             </div>
           </motion.div>
           
-          <div className="flex items-center justify-center gap-6 mb-4">
-            <div className="h-px bg-gold/20 flex-1 hidden md:block"></div>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight">
-              Carte <span className="text-gold italic">&</span> Dégustation
-            </h2>
-            <div className="h-px bg-gold/20 flex-1 hidden md:block"></div>
-          </div>
-          
-          <p className="text-silver/60 max-w-xl mx-auto text-[11px] uppercase tracking-[0.4em] font-medium">
-            Une symphonie de saveurs orchestrée par notre chef
-          </p>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight mb-8">
+            Carte <span className="text-gold italic">&</span> Dégustation
+          </h2>
 
-          {/* Prominent Zellij Ornament */}
-          <div className="mt-10 flex justify-center">
-             <motion.div
-               animate={{ rotate: [0, 90, 180, 270, 360] }}
-               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-               className="relative"
-             >
-                <svg width="80" height="80" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gold/30">
-                   <path d="M30 0l15 15-15 15-15-15L30 0zm0 60l15-15-15-15-15 15 15 15zM0 30l15 15 15-15-15-15L0 30zm60 0l-15 15-15-15 15-15 15 15z" fill="currentColor"/>
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                   <div className="w-8 h-8 border border-gold/40 rotate-45" />
-                </div>
-             </motion.div>
+          {/* Category Filters */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {CATEGORIES.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={cn(
+                  "px-8 py-2 text-[10px] uppercase tracking-[0.3em] font-bold transition-all border",
+                  activeCategory === cat 
+                    ? "bg-gold text-black border-gold" 
+                    : "text-silver/60 border-white/10 hover:border-gold/40 hover:text-white"
+                )}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {SAMPLE_MENU.map((item, idx) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group border border-line p-6 hover:bg-white/[0.02] transition-colors"
-            >
-              <div className="relative aspect-[3/4] mb-6 overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-start gap-4">
-                  <h3 className="text-[16px] font-serif group-hover:text-gold transition-colors">{item.name}</h3>
-                  <span className="text-gold text-[12px] font-medium whitespace-nowrap">{formatPrice(item.price)}</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="wait">
+            {filteredMenu.map((item, idx) => (
+              <motion.div
+                key={item.id}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                whileHover={{ y: -10, scale: 1.02, boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                className="group bg-black/20 border border-white/5 p-4 hover:border-gold/20 transition-all cursor-pointer"
+              >
+                <div className="relative aspect-[4/5] mb-6 overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.name}
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 border border-gold/20">
+                    <span className="text-gold text-[10px] font-bold">{formatPrice(item.price)}</span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                <div className="space-y-2">
+                  <span className="text-gold text-[9px] uppercase tracking-widest font-black opacity-60">{item.category}</span>
+                  <h3 className="text-xl font-serif group-hover:text-gold transition-colors">{item.name}</h3>
+                  <p className="text-silver/40 text-[12px] font-light italic leading-relaxed line-clamp-2">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         <motion.div 
@@ -134,12 +151,14 @@ export default function MenuSection() {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <a 
+          <motion.a 
             href="/menu-complet.pdf" 
-            className="inline-block px-12 py-4 border border-gold text-gold text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-charcoal transition-all"
+            whileHover={{ scale: 1.05, y: -2, background: '#C5A059', color: '#0D0D0D' }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block px-12 py-4 border border-gold text-gold text-xs font-bold uppercase tracking-widest transition-colors"
           >
             Télécharger le Menu Complet
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

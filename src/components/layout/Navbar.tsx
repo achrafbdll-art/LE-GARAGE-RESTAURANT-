@@ -25,7 +25,6 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
     { name: 'Musée', href: '#museum', icon: Car },
     { name: 'Réservation', href: '#reservation', icon: Calendar },
     { name: 'Galerie', href: '#gallery', icon: ImageIcon },
-    { name: 'Contact', href: '#contact', icon: MapPin },
   ];
 
   return (
@@ -39,40 +38,53 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex flex-col"
+          className="flex flex-col group cursor-pointer"
         >
-          <span className="text-xl font-serif tracking-[4px] text-gold uppercase">Automobile Club</span>
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-px bg-gold/50 group-hover:w-12 transition-all duration-500" />
+            <span className="text-xl md:text-2xl font-serif tracking-[4px] text-gold uppercase drop-shadow-sm">
+              Le Garage <span className="italic text-white opacity-90">Restaurant</span>
+            </span>
+          </div>
+          <span className="text-[8px] uppercase tracking-[6px] text-silver/40 ml-11 -mt-1 font-bold">Casablanca • Anfa</span>
         </motion.div>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-[40px]">
           {navLinks.map((link, idx) => {
-            const isReservation = link.name === 'Réservation';
+            if (link.name === 'Réservation') return null; // We'll render it as a button
             return (
               <motion.a
                 key={link.name}
-                href={isReservation && onOpenReservation ? undefined : link.href}
-                onClick={isReservation && onOpenReservation ? (e) => { e.preventDefault(); onOpenReservation(); } : undefined}
+                href={link.href}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -2, color: '#C5A059' }}
                 transition={{ delay: idx * 0.1 }}
-                className={cn(
-                  "text-[11px] uppercase tracking-[2px] font-medium transition-colors cursor-pointer",
-                  link.name === 'Accueil' ? "text-gold" : "text-silver hover:text-gold"
-                )}
+                className="text-[11px] uppercase tracking-[2px] font-medium transition-colors text-silver hover:text-gold"
               >
                 {link.name}
               </motion.a>
             );
           })}
-          <motion.a
-            href="mailto:privatisation@legrandprix.ma?subject=Demande de privatisation"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-2 border border-gold text-gold text-[10px] font-bold uppercase tracking-[2px] hover:bg-gold hover:text-black transition-all"
-          >
-            Privatiser
-          </motion.a>
+          <div className="flex items-center gap-4 border-l border-white/10 pl-8">
+            <motion.a
+              href="mailto:privatisation@legrandprix.ma?subject=Demande de privatisation"
+              whileHover={{ scale: 1.05, y: -1 }}
+              className="text-silver/60 text-[9px] uppercase tracking-[2px] hover:text-gold transition-colors"
+            >
+              Privatiser
+            </motion.a>
+            
+            <motion.button
+              onClick={onOpenReservation}
+              whileHover={{ scale: 1.05, boxShadow: '0 5px 20px rgba(197, 160, 89, 0.2)' }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-gold text-black text-[10px] font-black uppercase tracking-[3px] shadow-lg"
+            >
+              Réserver
+            </motion.button>
+          </div>
         </div>
 
         {/* Mobile Toggle */}

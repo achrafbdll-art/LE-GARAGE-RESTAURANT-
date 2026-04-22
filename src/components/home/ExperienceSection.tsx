@@ -1,12 +1,16 @@
 import { motion } from 'motion/react';
 
-export default function ExperienceSection() {
+interface ExperienceSectionProps {
+  onOpenReservation?: () => void;
+}
+
+export default function ExperienceSection({ onOpenReservation }: ExperienceSectionProps) {
   const experiences = [
     {
       title: "L'Ambiance Maillot",
       subtitle: "Brasserie Prestige",
       description: "Une atmosphère vibrante où l'élégance de l'Automobile Club rencontre le dynamisme des grandes brasseries. Un décor chargé d'histoire pour un moment hors du temps.",
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800', title: 'L\'Atmosphère', category: 'Lieu'",
+      image: "https://picsum.photos/seed/ambiance-brasserie/800/1000",
       accent: "bg-brasserie-red"
     },
     {
@@ -27,7 +31,7 @@ export default function ExperienceSection() {
                 <img 
                   src={exp.image} 
                   alt={exp.title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
                 <div className={`absolute top-0 right-0 w-16 h-16 ${exp.accent} flex items-center justify-center text-white font-bold text-xl`}>
@@ -49,12 +53,20 @@ export default function ExperienceSection() {
                    {exp.description}
                 </p>
 
-                <motion.div 
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '100px' }}
-                  viewport={{ once: true }}
-                  className={`h-px ${exp.accent} mt-8`}
-                />
+                <div className="flex items-center gap-6 pt-4">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '60px' }}
+                    viewport={{ once: true }}
+                    className={`h-px ${exp.accent}`}
+                  />
+                  <button 
+                    onClick={onOpenReservation}
+                    className="text-[10px] uppercase font-bold tracking-[0.2em] text-white hover:text-gold transition-colors"
+                  >
+                    Vivre l'expérience
+                  </button>
+                </div>
              </div>
           </div>
         ))}

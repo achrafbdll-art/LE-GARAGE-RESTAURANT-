@@ -87,7 +87,7 @@ export default function PrivatizationSection() {
                          <img 
                           src="https://picsum.photos/seed/event-hall/800/600" 
                           alt="Espaces de Privatisation"
-                          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                          className="w-full h-full object-cover transition-all duration-1000"
                           referrerPolicy="no-referrer"
                          />
                       </div>
@@ -247,9 +247,9 @@ export default function PrivatizationSection() {
                 {!isFormVisible && (
                   <motion.button
                     onClick={() => setIsFormVisible(true)}
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.05, y: -2, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)' }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center space-x-4 px-10 py-5 bg-white text-black text-xs font-bold uppercase tracking-[0.3em] hover:bg-gold transition-colors"
+                    className="inline-flex items-center space-x-4 px-10 py-5 bg-white text-black text-xs font-bold uppercase tracking-[0.3em] hover:bg-gold transition-all"
                   >
                     <Mail size={16} />
                     <span>Demander un Devis</span>

@@ -4,22 +4,23 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const HERO_IMAGES = [
   {
-    url: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1920",
-    alt: "Ambiance élégante du restaurant Le Garage"
+    url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=1920",
+    alt: "Gastronomie d'exception"
   },
   {
-    url: "https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&q=80&w=1920",
-    alt: "Table de brasserie gastronomique"
+    url: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1920",
+    alt: "Le geste du Chef"
   },
   {
-    url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1920",
-    alt: "Détail d'une voiture de collection mythique"
+    url: "https://images.unsplash.com/photo-1550966841-391ad5968ff3?auto=format&fit=crop&q=80&w=1920",
+    alt: "Table de prestige"
   },
   {
-    url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1920",
-    alt: "L'élégance du Musée Automobile"
+    url: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=1920",
+    alt: "Art du dessert"
   }
 ];
+
 interface HeroProps {
   onOpenReservation?: () => void;
 }
@@ -60,7 +61,7 @@ export default function Hero({ onOpenReservation }: HeroProps) {
                 src={HERO_IMAGES[currentSlide].url} 
                 alt={HERO_IMAGES[currentSlide].alt} 
                 loading="lazy"
-                className="w-full h-full object-cover grayscale opacity-90 transition-all duration-[3000ms] group-hover:grayscale-0"
+                className="w-full h-full object-cover opacity-90 transition-all duration-[3000ms]"
                 referrerPolicy="no-referrer"
               />
             </motion.div>
@@ -74,23 +75,32 @@ export default function Hero({ onOpenReservation }: HeroProps) {
         transition={{ duration: 0.8 }}
         className="relative z-20 drop-shadow-2xl"
       >
-        <div className="text-[12px] text-gold uppercase tracking-[3px] mb-[20px] font-bold drop-shadow-md">
-          Casablanca • Maroc
+        <div className="text-[12px] text-gold uppercase tracking-[5px] mb-[30px] font-bold drop-shadow-md flex items-center gap-4">
+          <div className="h-px w-8 bg-gold/50" />
+          <span>Casablanca • Anfa</span>
         </div>
         
-        <h1 className="text-white font-serif text-[42px] sm:text-[56px] md:text-[72px] leading-[1] md:leading-[0.9] font-normal mb-[30px] tracking-tight sm:tracking-[-2px] uppercase drop-shadow-2xl">
-          Midi <span className="text-gold italic md:text-[80px]">&</span> <br />
-          Minuit
+        <h1 className="text-white font-serif text-[48px] sm:text-[64px] md:text-[88px] xl:text-[110px] leading-[0.85] font-bold mb-[40px] tracking-tighter uppercase drop-shadow-2xl">
+          <span className="opacity-80">Midi &</span> <br />
+          <span className="text-gold italic relative">
+            Minuit
+            <motion.div 
+              initial={{ width: 0 }}
+              animate={{ width: '100%' }}
+              transition={{ delay: 1, duration: 1.5 }}
+              className="absolute -bottom-2 left-0 h-1 bg-gold/30"
+            />
+          </span>
         </h1>
 
-        <p className="text-white text-[11px] sm:text-[14px] leading-[1.6] max-w-[400px] mb-[40px] font-medium uppercase tracking-[0.2em] sm:tracking-widest drop-shadow-lg">
-          L'Escale Gastronomique Permanente au Cœur de l'Histoire Automobile de Casablanca.
+        <p className="text-white/80 text-[12px] sm:text-[15px] leading-[1.8] max-w-[450px] mb-[50px] font-light uppercase tracking-[0.25em] drop-shadow-lg">
+          L'Élite de la Gastronomie au cœur du Musée Automobile. Une escale intemporelle pour les esthètes de la route et du goût.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-[20px]">
           <motion.button
             onClick={onOpenReservation}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, y: -2, boxShadow: '0 10px 30px rgba(163, 29, 33, 0.3)' }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-brasserie-red text-white font-bold uppercase tracking-[2px] text-[11px] text-center hover:bg-gold hover:text-black transition-all"
           >
@@ -98,7 +108,8 @@ export default function Hero({ onOpenReservation }: HeroProps) {
           </motion.button>
           <motion.a
             href="#menu"
-            whileHover={{ background: 'rgba(255,255,255,0.05)' }}
+            whileHover={{ scale: 1.05, y: -2, background: 'rgba(255,255,255,0.1)' }}
+            whileTap={{ scale: 0.95 }}
             className="px-8 py-4 border border-silver/30 text-white font-bold uppercase tracking-[2px] text-[11px] text-center"
           >
             Voir le Menu

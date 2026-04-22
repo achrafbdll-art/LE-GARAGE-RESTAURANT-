@@ -54,9 +54,9 @@ export default function FormulaSection({ onOpenReservation }: FormulaSectionProp
                </div>
                <motion.button
                  onClick={onOpenReservation}
-                 whileHover={{ scale: 1.05 }}
+                 whileHover={{ scale: 1.05, y: -2, boxShadow: '0 10px 20px rgba(197, 160, 89, 0.15)' }}
                  whileTap={{ scale: 0.95 }}
-                 className="px-8 py-3 bg-white/5 border border-white/20 text-white text-[11px] font-bold uppercase tracking-[2px] hover:border-gold hover:text-gold transition-colors"
+                 className="px-8 py-3 bg-white/5 border border-white/20 text-white text-[11px] font-bold uppercase tracking-[2px] hover:border-gold hover:text-gold transition-all"
                >
                  Réserver cette formule
                </motion.button>

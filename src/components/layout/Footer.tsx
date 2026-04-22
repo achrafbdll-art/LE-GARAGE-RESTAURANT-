@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-black border-t border-line overflow-hidden">
        {/* Map View */}
-       <div className="w-full h-[350px] border-b border-line grayscale hover:grayscale-0 transition-all duration-700 relative group">
+       <div className="w-full h-[350px] border-b border-line transition-all duration-700 relative group">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.846440263691!2d-7.6322976!3d33.5833074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d2925b0f5555%3A0x6b8b0e5e0e0e0e0e!2sAutomobile%20Club%20du%20Maroc!5e0!3m2!1sfr!2sma!4v1713530000000!5m2!1sfr!2sma"
             width="100%"
