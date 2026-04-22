@@ -17,7 +17,7 @@ export default function ExperienceSection({ onOpenReservation }: ExperienceSecti
       title: "La Recette Secrète",
       subtitle: "Héritage Culinaire",
       description: "Notre sauce 'Grand Prix', une composition mystérieuse jalousement gardée, qui sublime chaque pièce de bœuf pour une expérience gustative inimitable.",
-      image: "https://picsum.photos/seed/sauce-gastronomy/800/1000",
+      image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800",
       accent: "bg-gold"
     }
   ];
