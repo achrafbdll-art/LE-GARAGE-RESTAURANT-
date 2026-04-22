@@ -11,7 +11,7 @@ const IMAGES = [
     type: 'video'
   },
   { url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800' },
-  { url: 'https://picsum.photos/seed/vintage-car-1/800/600', title: 'Collection Classique', category: 'Musée' },
+ 
    { url: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=800' },
   { url: 'https://picsum.photos/seed/gastronomy-plate/800/600', title: 'Art Culinaire', category: 'Cuisine' },
   { url: 'https://picsum.photos/seed/luxury-table/800/600', title: 'Exclusivité', category: 'Lieu' },
